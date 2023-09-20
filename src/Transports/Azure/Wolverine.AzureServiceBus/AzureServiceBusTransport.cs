@@ -18,7 +18,7 @@ public class AzureServiceBusTransport : BrokerTransport<AzureServiceBusEndpoint>
     private readonly Lazy<ServiceBusClient> _busClient;
     private readonly Lazy<ServiceBusAdministrationClient> _managementClient;
 
-    public readonly List<AzureServiceBusSubscription> Subscriptions = new();
+    public List<AzureServiceBusSubscription> Subscriptions { get; } = new();
     public const string DeadLetterQueueName = "wolverine-dead-letter-queue";
 
     public AzureServiceBusTransport() : base(ProtocolName, "Azure Service Bus")

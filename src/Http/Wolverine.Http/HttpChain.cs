@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text.Json;
@@ -38,8 +39,8 @@ public partial class HttpChain : Chain<HttpChain, ModifyHttpChainAttribute>, ICo
         return true;
     }
 
-    public static readonly Variable[] HttpContextVariables =
-        Variable.VariablesForProperties<HttpContext>(HttpGraph.Context);
+    public static readonly ImmutableArray<Variable> HttpContextVariables =
+       ImmutableArray.Create(Variable.VariablesForProperties<HttpContext>(HttpGraph.Context));
 
     private string? _fileName;
     private readonly List<string> _httpMethods = new();

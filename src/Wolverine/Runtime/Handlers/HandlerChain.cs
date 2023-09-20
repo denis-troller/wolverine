@@ -26,7 +26,7 @@ public class HandlerChain : Chain<HandlerChain, ModifyHandlerChainAttribute>, IW
 
     private readonly HandlerGraph _parent;
 
-    public readonly List<MethodCall> Handlers = new();
+    public List<MethodCall> Handlers { get; } = new();
     private GeneratedType? _generatedType;
     private Type? _handlerType;
 

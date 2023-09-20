@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "TracingTests": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:64821;http://localhost:64822"
+    }
+  }
+}

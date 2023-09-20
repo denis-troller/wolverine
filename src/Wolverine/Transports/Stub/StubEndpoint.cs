@@ -7,7 +7,8 @@ using Wolverine.Transports.Sending;
 
 namespace Wolverine.Transports.Stub;
 
-internal class StubEndpoint : Endpoint, ISendingAgent, ISender, IListener
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S3881:\"IDisposable\" should be implemented correctly", Justification = "This is just a stub")]
+internal class StubEndpoint : Endpoint, ISendingAgent, ISender, IListener, IDisposable
 {
     private readonly StubTransport _stubTransport;
 
@@ -106,6 +107,7 @@ internal class StubEndpoint : Endpoint, ISendingAgent, ISender, IListener
 
     public void Dispose()
     {
+        //nothing to actually Dispose
     }
 
 
