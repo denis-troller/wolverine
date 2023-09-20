@@ -270,7 +270,7 @@ namespace build
             }
 
             
-            Run("dotnet", "test --collect "Code Coverage" --no-build --no-restore --logger GitHubActions --framework net7.0 " + path);
+            Run("dotnet", "test --collect \"Code Coverage\" --no-build --no-restore --logger GitHubActions --framework net7.0 " + path);
 
         }
 
