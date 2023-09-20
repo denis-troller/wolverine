@@ -48,12 +48,16 @@ jobs:
           path: ./.sonar/scanner
           key: ${{ runner.os }}-sonar-scanner
           restore-keys: ${{ runner.os }}-sonar-scanner
-          
+
       - name: Install SonarQube scanner
         if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
         run: |
           mkdir -p .sonar/scanner 
           dotnet tool update dotnet-sonarscanner --tool-path ./.sonar/scanner
+
+      - name: Install dotnet-coverage
+        run: |
+          dotnet tool install --global dotnet-coverage
 
       - name: Build Version
         run: |
@@ -64,6 +68,6 @@ jobs:
         
       - name: Build and analyze
         run: |
-          ./.sonar/scanner/dotnet-sonarscanner begin /k:"denis-troller_wolverine" /o:"denis-troller" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          ./.sonar/scanner/dotnet-sonarscanner begin /k:"denis-troller_wolverine" /o:"denis-troller" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
           ./build.sh --no-color ci
           ./.sonar/scanner/dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
