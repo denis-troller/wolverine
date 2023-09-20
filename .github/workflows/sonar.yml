@@ -2,11 +2,11 @@ name: sonar
 
 on:
   workflow_dispatch:
-#  push:
-#    branches:
-#      - main
-#  pull_request:
-#    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   build:
@@ -43,6 +43,6 @@ jobs:
       - name: Build and analyze
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"denis-troller_wolverine_AYqotgXI1NYkGg_XT1mz" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
-          dotnet build
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"denis-troller_wolverine" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          ./build.ps1
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
