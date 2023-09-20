@@ -43,6 +43,6 @@ jobs:
       - name: Build and analyze
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"denis-troller_wolverine" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"denis-troller_wolverine" /o:"denis-troller" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
           ./build.ps1
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
