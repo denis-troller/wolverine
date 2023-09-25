@@ -91,7 +91,7 @@ public partial class HttpChain : Chain<HttpChain, ModifyHttpChainAttribute>, ICo
         applyMetadata();
     }
 
-    private bool tryFindResourceType(MethodCall method, out Type resourceType)
+    private static bool tryFindResourceType(MethodCall method, out Type resourceType)
     {
         resourceType = typeof(void);
 
