@@ -214,7 +214,7 @@ public partial class agent_tracking_behavior
 
         theNodes.Add(node1);
         theNodes.Add(node2);
-        //theNodes.Add(node3);
+        theNodes.Add(node3);
         theNodes.Add(node4);
 
         theNodes.Publish(new NodeEvent(node3, NodeEventType.LeadershipAssumed));

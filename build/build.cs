@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Runtime.Versioning;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Diagnostics.CodeAnalysis;
 using IntegrationTests;
 using Npgsql;
 using static System.Globalization.CultureInfo;
