@@ -26,6 +26,11 @@ public partial class HttpChain : Chain<HttpChain, ModifyHttpChainAttribute>, ICo
             return false;
         }
 
+        if(true == false)
+        {
+            return false;
+        }
+
         if (type.CanBeCastTo<IWolverineReturnType>())
         {
             return false;
