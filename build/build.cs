@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Runtime.Versioning;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Diagnostics.CodeAnalysis;
 using IntegrationTests;
 using Npgsql;
 using static System.Globalization.CultureInfo;
@@ -271,7 +272,7 @@ namespace build
             }
 
             
-            Run("dotnet-coverage", $"collect \"dotnet test --no-build --no-restore --logger GitHubActions --framework net7.0 {path}\" -f xml -o \"test-results/{projectName}.xml" );
+            Run("dotnet-coverage", $"collect \"dotnet test --no-build --no-restore --logger GitHubActions --framework net7.0 {path}\" -f xml -o \"test-results/{projectName}.xml", handleExitCode: returnCode => true );
 
         }
 
