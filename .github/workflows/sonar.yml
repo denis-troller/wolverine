@@ -70,7 +70,6 @@ jobs:
         run: |
           ./.sonar/scanner/dotnet-sonarscanner begin /k:"denis-troller_wolverine" /o:"denis-troller" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
           mkdir test-results
-          ./build.sh --no-color ci
-          echo "FILES=$(ls --format=across test-results/*.xml)" >> $GITHUB_ENV
-          dotnet-coverage merge --output coverage.xml ${{ env.FILES }}
+          ./build.sh --no-color ci test-core test-extensions         
+          dotnet-coverage merge --output coverage.xml test-results/*.xml
           ./.sonar/scanner/dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
