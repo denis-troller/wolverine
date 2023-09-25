@@ -240,3 +240,5 @@ JasperSamples
 
 /test-results/*.xml
 coverage.xml
+.sonar
+.sonarqube

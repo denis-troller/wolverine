@@ -13,6 +13,7 @@ using static SimpleExec.Command;
 
 namespace build
 {
+    [ExcludeFromCodeCoverage]
     internal class Build
     {
         private static void Main(string[] args)
