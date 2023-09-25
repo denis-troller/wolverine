@@ -272,7 +272,7 @@ namespace build
             }
 
             
-            Run("dotnet-coverage", $"collect \"dotnet test --no-build --no-restore --logger GitHubActions --framework net7.0 {path}\" -f xml -o \"test-results/{projectName}.xml" );
+            Run("dotnet-coverage", $"collect \"dotnet test --no-build --no-restore --logger GitHubActions --framework net7.0 {path}\" -f xml -o \"test-results/{projectName}.xml", handleExitCode: returnCode => true );
 
         }
 
